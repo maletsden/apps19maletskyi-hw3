@@ -27,13 +27,19 @@ class Student {
         return name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getSurname() { return surname; }
+
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Student)) {
+            return false;
+        }
+        return toString().equals(obj.toString());
     }
 
     @Override
     public String toString() {
         return "Student{name=" + name + ", surname=" + surname + ", " + "GPA=" + GPA + ", year=" + year + '}';
     }
+
 
 }
