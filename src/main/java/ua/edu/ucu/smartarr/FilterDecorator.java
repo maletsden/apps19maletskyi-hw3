@@ -17,7 +17,7 @@ public class FilterDecorator extends SmartArrayDecorator {
     @Override
     public Object[] toArray() {
         Stream<Object> arraySteam = Arrays.stream(smartArray.toArray());
-        return arraySteam.filter((obj) -> pr.test(obj)).toArray(Object[]::new);
+        return arraySteam.filter(obj -> pr.test(obj)).toArray(Object[]::new);
     }
 
     @Override

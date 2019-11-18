@@ -1,12 +1,17 @@
 package ua.edu.ucu;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 import ua.edu.ucu.functions.MyComparator;
 import ua.edu.ucu.functions.MyFunction;
 import ua.edu.ucu.functions.MyPredicate;
-import ua.edu.ucu.smartarr.*;
+import ua.edu.ucu.smartarr.FilterDecorator;
+import ua.edu.ucu.smartarr.MapDecorator;
+import ua.edu.ucu.smartarr.SmartArray;
+import ua.edu.ucu.smartarr.SortDecorator;
+import ua.edu.ucu.smartarr.BaseArray;
+import ua.edu.ucu.smartarr.DistinctDecorator;
+
 
 public class SmartArrayApp {
 
@@ -52,7 +57,8 @@ public class SmartArrayApp {
             @Override
             public boolean test(Object t) {
                 Student student = (Student) t;
-                return student.getYear() == 2 && student.getGPA() >= 4;
+                int minimumGPA = 4;
+                return student.getYear() == 2 && student.getGPA() >= minimumGPA;
             }
         };
 

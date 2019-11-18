@@ -1,10 +1,7 @@
 package ua.edu.ucu.smartarr;
 
 import ua.edu.ucu.functions.MyComparator;
-import ua.edu.ucu.functions.MyFunction;
-
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 // Sorts elements using MyComparator to compare them
 public class SortDecorator extends SmartArrayDecorator{
