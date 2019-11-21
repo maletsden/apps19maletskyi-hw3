@@ -53,12 +53,13 @@ public class SmartArrayApp {
     public static String[]
             findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
 
+        int minimumGPA = 4, expectedYear = 2;
         MyPredicate pr = new MyPredicate() {
             @Override
             public boolean test(Object t) {
                 Student student = (Student) t;
-                int minimumGPA = 4, expectedYear = 2;
-                return student.getYear() == expectedYear && student.getGPA() >= minimumGPA;
+                return student.getYear() == expectedYear &&
+                        student.getGPA() >= minimumGPA;
             }
         };
 
@@ -72,7 +73,8 @@ public class SmartArrayApp {
         MyFunction func = new MyFunction() {
             @Override
             public Object apply(Object t) {
-                return ((Student) t).getSurname() + ' ' + ((Student) t).getName();
+                return ((Student) t).getSurname() + ' '
+                        + ((Student) t).getName();
             }
         };
 

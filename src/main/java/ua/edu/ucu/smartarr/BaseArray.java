@@ -11,7 +11,9 @@ public class BaseArray implements SmartArray {
     }
 
     @Override
-    public Object[] toArray() { return Arrays.copyOf(baseArray, baseArray.length); }
+    public Object[] toArray() {
+        return Arrays.copyOf(baseArray, baseArray.length);
+    }
 
     @Override
     public String operationDescription() {

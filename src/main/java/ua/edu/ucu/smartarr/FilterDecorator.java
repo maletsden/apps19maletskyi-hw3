@@ -19,7 +19,9 @@ public class FilterDecorator extends SmartArrayDecorator {
     public Object[] toArray() {
         if (array == null) {
             Stream<Object> arraySteam = Arrays.stream(smartArray.toArray());
-            array = arraySteam.filter(obj -> myPr.test(obj)).toArray(Object[]::new);
+            array = arraySteam.filter(
+                    obj -> myPr.test(obj)
+            ).toArray(Object[]::new);
         }
         return Arrays.copyOf(array, array.length);
     }

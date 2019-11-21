@@ -1,13 +1,12 @@
 package ua.edu.ucu.smartarr;
 
 import ua.edu.ucu.functions.MyFunction;
-import ua.edu.ucu.functions.MyPredicate;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
 
 // Map every element to another object using MyFunction
-public class MapDecorator extends SmartArrayDecorator{
+public class MapDecorator extends SmartArrayDecorator {
     private Object[] array;
     private MyFunction myFn;
 
@@ -20,7 +19,9 @@ public class MapDecorator extends SmartArrayDecorator{
     public Object[] toArray() {
         if (array == null) {
             Stream<Object> arraySteam = Arrays.stream(smartArray.toArray());
-            array = arraySteam.map(obj -> myFn.apply(obj)).toArray(Object[]::new);
+            array = arraySteam.map(
+                    obj -> myFn.apply(obj)
+            ).toArray(Object[]::new);
         }
         return Arrays.copyOf(array, array.length);
     }
