@@ -8,17 +8,21 @@ import java.util.stream.Stream;
 
 // Map every element to another object using MyFunction
 public class MapDecorator extends SmartArrayDecorator{
-    private MyFunction fn;
+    private Object[] array;
+    private MyFunction myFn;
 
     public MapDecorator(SmartArray array, MyFunction fn) {
         super(array);
-        this.fn = fn;
+        myFn = fn;
     }
 
     @Override
     public Object[] toArray() {
-        Stream<Object> arraySteam = Arrays.stream(smartArray.toArray());
-        return arraySteam.map((obj) -> fn.apply(obj)).toArray(Object[]::new);
+        if (array == null) {
+            Stream<Object> arraySteam = Arrays.stream(smartArray.toArray());
+            array = arraySteam.map(obj -> myFn.apply(obj)).toArray(Object[]::new);
+        }
+        return Arrays.copyOf(array, array.length);
     }
 
     @Override

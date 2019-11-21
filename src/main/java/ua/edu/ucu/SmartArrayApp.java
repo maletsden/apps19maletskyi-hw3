@@ -57,8 +57,8 @@ public class SmartArrayApp {
             @Override
             public boolean test(Object t) {
                 Student student = (Student) t;
-                int minimumGPA = 4;
-                return student.getYear() == 2 && student.getGPA() >= minimumGPA;
+                int minimumGPA = 4, expectedYear = 2;
+                return student.getYear() == expectedYear && student.getGPA() >= minimumGPA;
             }
         };
 

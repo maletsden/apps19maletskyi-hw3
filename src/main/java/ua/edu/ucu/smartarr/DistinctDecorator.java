@@ -5,14 +5,20 @@ import java.util.stream.Stream;
 
 // Remove duplicates from SmartArray. Use method equals() to compare objects
 public class DistinctDecorator extends SmartArrayDecorator {
+    private Object[] array;
+
     public DistinctDecorator(SmartArray array) {
         super(array);
     }
 
     @Override
     public Object[] toArray() {
-        Stream<Object> arraySteam = Arrays.stream(smartArray.toArray());
-        return arraySteam.distinct().toArray(Object[]::new);
+        if (array == null) {
+            Stream<Object> arraySteam = Arrays.stream(smartArray.toArray());
+            array = arraySteam.distinct().toArray(Object[]::new);
+        }
+
+        return Arrays.copyOf(array, array.length);
     }
 
     @Override

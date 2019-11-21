@@ -1,6 +1,5 @@
 package ua.edu.ucu.smartarr;
 
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import ua.edu.ucu.functions.MyComparator;
@@ -51,11 +50,11 @@ public class SmartArrayTest {
     @Test
     public void testFilterDecorator() {
         MyPredicate pr = new MyPredicate() {
-            @Override
             public boolean test(Object t) {
-                return ((Integer) t) > 0;
+                return (Integer)t > 0;
             }
         };
+
         SmartArray filteredSmartArray = new FilterDecorator(
                 smartArray,
                 pr
@@ -75,9 +74,8 @@ public class SmartArrayTest {
     @Test
     public void testMapDecorator() {
         MyFunction func = new MyFunction() {
-            @Override
             public Object apply(Object t) {
-                return -1 * ((Integer) t);
+                return -1 * (Integer)t;
             }
         };
         SmartArray filteredSmartArray = new MapDecorator(
@@ -99,9 +97,8 @@ public class SmartArrayTest {
     @Test
     public void testSortDecorator() {
         MyComparator cmp = new MyComparator() {
-            @Override
             public int compare(Object o1, Object o2) {
-                return ((Integer) o1) - ((Integer) o2);
+                return (Integer)o1 - (Integer)o2;
             }
         };
 

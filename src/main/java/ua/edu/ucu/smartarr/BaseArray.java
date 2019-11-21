@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 // Base array for decorators
 public class BaseArray implements SmartArray {
-    private Object[] array;
+    private Object[] baseArray;
 
     public BaseArray(Object[] array) {
-        this.array = Arrays.copyOf(array, array.length);
+        baseArray = Arrays.copyOf(array, array.length);
     }
 
     @Override
-    public Object[] toArray() { return Arrays.copyOf(array, array.length); }
+    public Object[] toArray() { return Arrays.copyOf(baseArray, baseArray.length); }
 
     @Override
     public String operationDescription() {
@@ -20,6 +20,6 @@ public class BaseArray implements SmartArray {
 
     @Override
     public int size() {
-        return array.length;
+        return baseArray.length;
     }
 }
