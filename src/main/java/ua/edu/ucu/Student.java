@@ -29,12 +29,18 @@ class Student {
 
     public String getSurname() { return surname; }
 
+    @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Student)) {
             return false;
         }
         return toString().equals(obj.toString());
     }
+
+    public int hasCode() {
+        return 1;
+    }
+
 
     @Override
     public String toString() {

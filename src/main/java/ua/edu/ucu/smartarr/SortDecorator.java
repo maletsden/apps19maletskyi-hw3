@@ -5,30 +5,23 @@ import java.util.Arrays;
 
 // Sorts elements using MyComparator to compare them
 public class SortDecorator extends SmartArrayDecorator {
-    private Object[] array;
     private MyComparator myCmp;
 
     public SortDecorator(SmartArray array, MyComparator cmp) {
         super(array);
         myCmp = cmp;
+        decoratedArray = applyChanges(smartArray.toArray());
+
     }
 
     @Override
-    public Object[] toArray() {
-        if (array == null) {
-            array = smartArray.toArray();
-            Arrays.sort(array, myCmp);
-        }
-        return Arrays.copyOf(array, array.length);
+    protected Object[] applyChanges(Object[] array) {
+        Arrays.sort(array, myCmp);
+        return array;
     }
 
     @Override
     public String operationDescription() {
         return smartArray.operationDescription() + " + sortDecorator";
-    }
-
-    @Override
-    public int size() {
-        return toArray().length;
     }
 }
